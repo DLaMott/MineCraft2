@@ -1,0 +1,27 @@
+reload-message: "&a&1Reload RandomBlock!"
+
+blocks:
+  GRASS:
+    - GRASS
+    - GRASS
+    - GRASS
+    - GRASS
+    - STONE
+    - WATER
+  SAND:
+    - FLINT
+    - GOLD_NUGGET
+    _ GOLD_IGNOT
+    - SAND
+  IRON_BLOCK:
+    - IRON_IGNOT
+  DIRT:
+    - GRASS
+    - IRON_IGNOT
+    - DIAMOND
+    - STONE
+
+
+
+
+

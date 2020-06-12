@@ -1,0 +1,23 @@
+blocks:
+  DIRT:
+    - DIRT
+    - DIRT
+    - IRON_INGOT
+    - DIAMOND
+    - GRASS
+  GRASS:
+    - DIRT
+    - DIRT
+    - IRON_INGOT
+    - DIAMOND
+    - GRASS
+    - GRASS
+  STONE:
+    - STONE
+    - SAND
+    - SAND
+    - IRON
+    - DIRT
+    - EMERALD
+    - GOLD_NUGGET
+    - FLINT

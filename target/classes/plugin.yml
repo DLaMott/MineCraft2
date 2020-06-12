@@ -1,0 +1,18 @@
+main: me.dylan.helloBitch.HelloWorld
+name: HelloWorld
+version: 1.01
+author: dylan
+api-version: 1.13
+commands:
+  createnpc:
+  kits:
+  mystat:
+  skull:
+  gamble:
+  changeteam:
+  trident:
+  godboots:
+  hello:
+  launch:
+  fly:
+  doctor:
