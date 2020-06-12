@@ -56,7 +56,7 @@ public class StarTool implements CommandExecutor, Listener {
         ItemStack trident = new ItemStack(Material.TRIDENT);
         ItemMeta meta = trident.getItemMeta();
 
-        meta.setDisplayName(ChatColor.MAGIC + "" + ChatColor.BOLD + "Trident of ASS");
+        meta.setDisplayName(ChatColor.MAGIC + "" + ChatColor.BOLD + "Trident of death");
         List<String> lore = new ArrayList<String>();
         lore.add("");
         lore.add(ChatColor.translateAlternateColorCodes('&', "&7(Right CLick) &a&oSpawn slaves."));

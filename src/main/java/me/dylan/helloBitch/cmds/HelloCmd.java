@@ -21,7 +21,7 @@ public class HelloCmd implements CommandExecutor {
             return true;
         } else {
             // server, console
-            sender.sendMessage(ChatColor.LIGHT_PURPLE + "Hey Shithead!");
+            sender.sendMessage(ChatColor.LIGHT_PURPLE + "Wuddup foo!");
             return true;
         }
     }

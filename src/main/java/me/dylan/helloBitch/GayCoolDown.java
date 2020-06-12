@@ -14,7 +14,7 @@ public class GayCoolDown implements Cooldown {
     public GayCoolDown(String name, double coolDownSeconds) {
         this.coolDownSeconds = coolDownSeconds;
         this.name = name;
-        //constructor is initializing fields and sucking dick.
+        //constructor is initializing fields.
     }
 
     @Override
@@ -28,9 +28,9 @@ public class GayCoolDown implements Cooldown {
             //player in hashmap.
 
                 //player time variable
-                long dick = cooldown.get(p.getName());
+                long l = cooldown.get(p.getName());
                 //time that player is in the cooldown.
-                long timeleft = dick - (System.currentTimeMillis()/ 1000);
+                long timeleft = l - (System.currentTimeMillis()/ 1000);
                 //time player in cooldown - current world time.
                 if (timeleft <= 0) { // player is sent out if time is lessthan or equal to zero.
                     clear(p);
