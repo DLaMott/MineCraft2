@@ -1,2 +1,2 @@
 # MineCraft2
-plugins that I have worked on
+Plugins include various kits, tools, features, stats, and more.
