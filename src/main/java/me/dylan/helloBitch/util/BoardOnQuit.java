@@ -7,14 +7,16 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class BoardOnQuit implements Listener {
     private final HelloWorld plugin;
-    public BoardOnQuit(HelloWorld plugin){
+
+    public BoardOnQuit(HelloWorld plugin) {
         this.plugin = plugin;
 
     }
+
     @EventHandler
-    public void ScoreQuit (PlayerQuitEvent event){
+    public void ScoreQuit(PlayerQuitEvent event) {
         LobbyBoard board = new LobbyBoard(event.getPlayer().getUniqueId());
-        if (board.hasID()){
+        if (board.hasID()) {
             board.stop();
         }
     }

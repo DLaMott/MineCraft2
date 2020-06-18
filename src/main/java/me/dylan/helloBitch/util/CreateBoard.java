@@ -9,14 +9,15 @@ import org.bukkit.scoreboard.*;
 
 public class CreateBoard {
     private final HelloWorld plugin;
-    public CreateBoard(HelloWorld plugin){
+
+    public CreateBoard(HelloWorld plugin) {
         this.plugin = plugin;
     }
 
-    public void loadBoard(Player player){
+    public void loadBoard(Player player) {
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         Scoreboard board = manager.getNewScoreboard();
-        Objective obj = board.registerNewObjective("HelloScoreBoard","dummy",
+        Objective obj = board.registerNewObjective("HelloScoreBoard", "dummy",
                 ChatColor.translateAlternateColorCodes('&', "&a&1<< &2&1ScoreTrack &a&1>>"));
         obj.setDisplaySlot(DisplaySlot.SIDEBAR);
         Score score = obj.getScore(ChatColor.BLUE + "=-=-=-=-=-=-=-=");
@@ -28,7 +29,6 @@ public class CreateBoard {
         Score score4 = obj.getScore(ChatColor.RED + "Deaths" + ChatColor.DARK_RED + player.getStatistic(Statistic.DEATHS));
         score4.setScore(0);
         player.setScoreboard(board);
-
 
 
     }

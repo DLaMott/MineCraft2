@@ -12,15 +12,17 @@ public class StatTab implements TabCompleter {
     List<String> arguments = new ArrayList<String>();
 
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
-        if(arguments.isEmpty()){
-            arguments.add("logins"); arguments.add("playerKills");
-            arguments.add("mobKills"); arguments.add("deaths");
+        if (arguments.isEmpty()) {
+            arguments.add("logins");
+            arguments.add("playerKills");
+            arguments.add("mobKills");
+            arguments.add("deaths");
             arguments.add("damage");
         }
         List<String> result = new ArrayList<String>();
-        if (args.length == 1){
-            for (String a : arguments){
-                if(a.toLowerCase().startsWith(args[0].toLowerCase())) result.add(a);
+        if (args.length == 1) {
+            for (String a : arguments) {
+                if (a.toLowerCase().startsWith(args[0].toLowerCase())) result.add(a);
             }
             return result;
         }

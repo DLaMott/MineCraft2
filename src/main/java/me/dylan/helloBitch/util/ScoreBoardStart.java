@@ -4,30 +4,31 @@ import me.dylan.helloBitch.HelloWorld;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scoreboard.DisplaySlot;
 
 public class ScoreBoardStart {
-    private int taskID;
     private final HelloWorld plugin;
-    public ScoreBoardStart (HelloWorld plugin){
+    private int taskID;
+
+    public ScoreBoardStart(HelloWorld plugin) {
         this.plugin = plugin;
     }
-    public void Start(Player player){
-        taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask( plugin, new Runnable() {
+
+    public void Start(Player player) {
+        taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
 
             int count = 0;
-            LobbyBoard board = new LobbyBoard(player.getUniqueId());
+            final LobbyBoard board = new LobbyBoard(player.getUniqueId());
 
             @Override
             public void run() {
-                if (!board.hasID()){
+                if (!board.hasID()) {
                     board.setID(taskID);
                 }
-                if (count == 13){
+                if (count == 13) {
                     count = 0;
                 }
-                switch (count){
+                switch (count) {
                     case 0:
                         player.getScoreboard().getObjective(DisplaySlot.SIDEBAR)
                                 .setDisplayName(ChatColor.translateAlternateColorCodes('&', "&a&1<< &2&1ScoreTrack &a&1>>"));

@@ -1,6 +1,8 @@
 package me.dylan.helloBitch;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,20 +29,20 @@ public class GayCoolDown implements Cooldown {
         if (cooldown.containsKey(p.getName())) {
             //player in hashmap.
 
-                //player time variable
-                long l = cooldown.get(p.getName());
-                //time that player is in the cooldown.
-                long timeleft = l - (System.currentTimeMillis()/ 1000);
-                //time player in cooldown - current world time.
-                if (timeleft <= 0) { // player is sent out if time is lessthan or equal to zero.
-                    clear(p);
-                    return false;
-                }
-                p.sendMessage(ChatColor.GOLD + " Ability will be ready in " + timeleft + " second(s) ");
-                return true;
+            //player time variable
+            long l = cooldown.get(p.getName());
+            //time that player is in the cooldown.
+            long timeleft = l - (System.currentTimeMillis() / 1000);
+            //time player in cooldown - current world time.
+            if (timeleft <= 0) { // player is sent out if time is lessthan or equal to zero.
+                clear(p);
+                return false;
+            }
+            p.sendMessage(ChatColor.GOLD + " Ability will be ready in " + timeleft + " second(s) ");
+            return true;
 
         }
-        cooldown.put(p.getName(), (long) (System.currentTimeMillis()/1000 + coolDownSeconds));
+        cooldown.put(p.getName(), (long) (System.currentTimeMillis() / 1000 + coolDownSeconds));
         return false;
     }
 

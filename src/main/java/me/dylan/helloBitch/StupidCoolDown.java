@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StupidCoolDown implements Cooldown {
+    public final int coolDownSeconds = NumberUtil.rnd(10);
     private final Map<String, Long> cooldown = new HashMap<String, Long>();
     private final String name;
-    public final int coolDownSeconds = NumberUtil.rnd(10);
 
     public StupidCoolDown(String name) {
         this.name = name;
@@ -40,7 +40,7 @@ public class StupidCoolDown implements Cooldown {
             return true;
 
         }
-        cooldown.put(p.getName(), (long) (System.currentTimeMillis() / 1000 + coolDownSeconds));
+        cooldown.put(p.getName(), System.currentTimeMillis() / 1000 + coolDownSeconds);
         return false;
     }
 

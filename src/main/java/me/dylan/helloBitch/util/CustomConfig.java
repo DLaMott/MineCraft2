@@ -12,9 +12,9 @@ public class CustomConfig {
     private final File file;
     private FileConfiguration customFile;
 
-    public CustomConfig(){
-        file = new File(Bukkit.getServer().getPluginManager().getPlugin("HelloWorld").getDataFolder(),"customconfig.yml");
-        if (!file.exists()){
+    public CustomConfig() {
+        file = new File(Bukkit.getServer().getPluginManager().getPlugin("HelloWorld").getDataFolder(), "customconfig.yml");
+        if (!file.exists()) {
             try {
                 file.createNewFile();
             } catch (IOException e) {
@@ -22,10 +22,12 @@ public class CustomConfig {
         }
         customFile = YamlConfiguration.loadConfiguration(file);
     }
-    public FileConfiguration get(){
+
+    public FileConfiguration get() {
         return customFile;
     }
-    public void save(){
+
+    public void save() {
         try {
             customFile.save(file);
         } catch (IOException e) {
@@ -33,7 +35,7 @@ public class CustomConfig {
         }
     }
 
-    public void reload(){
+    public void reload() {
         customFile = YamlConfiguration.loadConfiguration(file);
     }
 }

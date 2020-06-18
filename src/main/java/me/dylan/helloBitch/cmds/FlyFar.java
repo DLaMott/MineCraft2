@@ -15,14 +15,15 @@ public class FlyFar implements CommandExecutor {
 
         if (!(sender instanceof Player)) {
             sender.sendMessage("You can not fly!");
-            return true;}
+            return true;
+        }
 
-            Player player = (Player) sender;
-            if (player.hasPermission("flyplugin.fly")) {
-                player.setAllowFlight(true);
-                player.sendMessage(ChatColor.BLUE + "You can now fly!");
-                return true;
-            }
+        Player player = (Player) sender;
+        if (player.hasPermission("flyplugin.fly")) {
+            player.setAllowFlight(true);
+            player.sendMessage(ChatColor.BLUE + "You can now fly!");
+            return true;
+        }
         return true;
     }
 }

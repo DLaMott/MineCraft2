@@ -1,7 +1,6 @@
 package me.dylan.helloBitch.cmds;
 
 import me.dylan.helloBitch.Cooldown;
-
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;

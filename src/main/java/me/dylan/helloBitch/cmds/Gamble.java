@@ -27,6 +27,7 @@ public class Gamble implements Listener, CommandExecutor {
     private final HelloWorld plugin;
     List<Inventory> invs = new ArrayList<Inventory>();
     private int itemIndex = 0;
+
     public Gamble(HelloWorld plugin) {
 
         this.plugin = plugin;
