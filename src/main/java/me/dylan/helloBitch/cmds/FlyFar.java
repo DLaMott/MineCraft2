@@ -12,13 +12,17 @@ public class FlyFar implements CommandExecutor {
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (sender instanceof Player) {
+
+        if (!(sender instanceof Player)) {
+            sender.sendMessage("You can not fly!");
+            return true;}
+
             Player player = (Player) sender;
             if (player.hasPermission("flyplugin.fly")) {
                 player.setAllowFlight(true);
                 player.sendMessage(ChatColor.BLUE + "You can now fly!");
+                return true;
             }
-        }
         return true;
     }
 }

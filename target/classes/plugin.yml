@@ -4,7 +4,6 @@ version: 1.01
 author: dylan
 api-version: 1.13
 commands:
-  createnpc:
   kits:
   mystat:
   skull:

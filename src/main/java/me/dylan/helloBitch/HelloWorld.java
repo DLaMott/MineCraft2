@@ -1,16 +1,18 @@
 package me.dylan.helloBitch;
 
 import me.dylan.helloBitch.cmds.*;
-import me.dylan.helloBitch.npc.AddNPC;
-import me.dylan.helloBitch.npc.onJoin;
-import me.dylan.helloBitch.util.CustomConfig;
-import me.dylan.helloBitch.util.CustomRecipe;
-import me.dylan.helloBitch.util.StatTab;
+import me.dylan.helloBitch.util.*;
+
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 //This is the main class. Main class extends JavaPlugin. Only one class can have java plugin...It is needed for imports.
 public class HelloWorld extends JavaPlugin {
 //The class is public:Able to be called by other classes. The Class is defined as HelloWorld then extends java plugin.
     private CustomConfig customConfig;
+
+
 
     @Override
     public void onEnable() {
@@ -20,6 +22,9 @@ public class HelloWorld extends JavaPlugin {
 //        StarTool starTool= new StarTool(new GayCoolDown("CoolDown1", 5d)); //This can be used for a set cooldown limit of 5
         customConfig = new CustomConfig();
         CustomRecipe cr  = new CustomRecipe(this);
+        CreateBoard CBB = new CreateBoard(this);
+        ScoreBoardStart St = new ScoreBoardStart(this);
+
 //        customConfig.get().addDefault("Lick", "Shit");
 //        customConfig.get().options().copyDefaults(true);
 //        customConfig.save(); //Moved to comments because if the config is saved on startup it will overwrite.
@@ -37,7 +42,7 @@ public class HelloWorld extends JavaPlugin {
         this.getCommand("mystat").setTabCompleter(new StatTab());
         this.getCommand("kits").setExecutor(new KitGui());
         this.getServer().addRecipe(cr.getRecipe());
-        this.getCommand("createnpc").setExecutor(new AddNPC());
+
 
 
 //Strings below call our Event listeners from our classes.
@@ -47,10 +52,23 @@ public class HelloWorld extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new Gamble(this),this);
         this.getServer().getPluginManager().registerEvents(new BlockBreak(this),this);
         this.getServer().getPluginManager().registerEvents(new KitGui(), this);
-        this.getServer().getPluginManager().registerEvents(new onJoin(),this);
+
+        this.getServer().getPluginManager().registerEvents(new BoardOnJoin(this),this);
+        if (!Bukkit.getOnlinePlayers().isEmpty())
+            for(Player online : Bukkit.getOnlinePlayers()){
+                CBB.loadBoard(online);
+                St.Start(online);
+            }
+
+
+
+            this.getServer().getPluginManager().registerEvents(new BoardOnQuit(this), this);
+
+
     }
     @Override
     public void onDisable() {
+
 
     }
     public CustomConfig getCustomConfig() {
