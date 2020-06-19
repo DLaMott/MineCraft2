@@ -79,15 +79,13 @@ public class StarTool implements CommandExecutor, Listener {
             if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().hasLore()) {
                 Player player = event.getPlayer();
                 if (event.getAction() == Action.RIGHT_CLICK_AIR) {
+
                     if (!list.contains(player.getName()))
                         list.add(player.getName());
                     return;
                 }
                 if (event.getAction() == Action.LEFT_CLICK_AIR) {
-                    //Cooldown being checked.
-                    if (this.cooldown.isOnCooldown(player)) {
-                        return;
-                    }
+
                     player.launchProjectile(Fireball.class);
                 }
             }
@@ -99,6 +97,10 @@ public class StarTool implements CommandExecutor, Listener {
             if (event.getEntity().getShooter() instanceof Player) {
                 Player player = (Player) event.getEntity().getShooter();
                 if (list.contains(player.getName())) {
+                    //Cooldown being checked.
+                    if (this.cooldown.isOnCooldown(player)) {
+                        return;
+                    }
                     //zombie spawn
                     Location loc = event.getEntity().getLocation();
                     loc.setY(loc.getY() + 1);

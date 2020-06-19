@@ -41,7 +41,7 @@ public class Gamble implements Listener, CommandExecutor {
             }
             Player player = (Player) sender;
             ItemStack fee = new ItemStack(Material.DIAMOND);
-            fee.setAmount(3);
+            fee.setAmount(1);
             if (player.getInventory().getItemInMainHand().isSimilar(fee)) {
                 player.getInventory().removeItem(fee);
                 spin(player);

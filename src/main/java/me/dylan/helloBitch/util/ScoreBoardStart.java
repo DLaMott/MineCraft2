@@ -17,8 +17,8 @@ public class ScoreBoardStart {
     public void Start(Player player) {
         taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
 
-            int count = 0;
             final LobbyBoard board = new LobbyBoard(player.getUniqueId());
+            int count = 0;
 
             @Override
             public void run() {

@@ -58,6 +58,12 @@ public class KitGui implements CommandExecutor, Listener {
         item.setItemMeta(meta);
         inv.setItem(5, item);
 
+        item.setType(Material.GOLD_BLOCK);
+        meta = item.getItemMeta();
+        meta.setDisplayName("Gold Kit");
+        item.setItemMeta(meta);
+        inv.setItem(6, item);
+
         kits = inv;
     }
 
@@ -116,6 +122,16 @@ public class KitGui implements CommandExecutor, Listener {
             player.updateInventory();
             return;
         }
+        if (event.getSlot() == 6) {
+            if (!player.hasPermission("kits.gold")) {
+                player.sendMessage("You cant open this kit!");
+                return;
+            }
+            this.dropChest(player, this.getGoldKit());
+            player.closeInventory();
+            player.updateInventory();
+            return;
+        }
     }
 
     private void dropChest(Player player, ItemStack[] items) {
@@ -161,6 +177,30 @@ public class KitGui implements CommandExecutor, Listener {
         };
         return items;
     }
+
+    private ItemStack[] getGoldKit() {
+
+        ItemStack item = new ItemStack(Material.GOLDEN_AXE);
+        ItemMeta meta = item.getItemMeta();
+        meta.addEnchant(Enchantment.SWEEPING_EDGE, 10, true);
+        item.setItemMeta(meta);
+
+        ItemStack item2 = new ItemStack(Material.GOLDEN_PICKAXE);
+        ItemMeta meta2 = item2.getItemMeta();
+        meta2.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 10, true);
+        item2.setItemMeta(meta2);
+
+        ItemStack item3 = new ItemStack(Material.GOLDEN_HELMET);
+        ItemStack item4 = new ItemStack(Material.GOLDEN_CHESTPLATE);
+        ItemStack item5 = new ItemStack(Material.GOLDEN_LEGGINGS);
+        ItemStack item6 = new ItemStack(Material.GOLDEN_BOOTS);
+
+
+        ItemStack[] items = {item, item2, item3, item4, item5, item6};
+
+        return items;
+    }
+
 
     private ItemStack[] getDiamondKit() {
         ItemStack item = new ItemStack(Material.DIAMOND_PICKAXE);
