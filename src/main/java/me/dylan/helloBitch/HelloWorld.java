@@ -23,7 +23,7 @@ public class HelloWorld extends JavaPlugin {
         CreateBoard CBB = new CreateBoard(this);
         ScoreBoardStart St = new ScoreBoardStart(this);
 
-//        customConfig.get().addDefault("Lick", "Shit");
+//        customConfig.get().addDefault("", "");
 //        customConfig.get().options().copyDefaults(true);
 //        customConfig.save(); //Moved to comments because if the config is saved on startup it will overwrite.
 //these are used to call classes that use commands. If not placed in our main they will not load into the plugin.
